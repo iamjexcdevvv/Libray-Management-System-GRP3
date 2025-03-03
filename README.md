@@ -17,3 +17,6 @@ Please follow the naming convention for consistency.
 ## Naming Convention
 When creating a new form its better to follow this format for consistency:  
 snake_case
+
+Group 3 Members:
+Andrei Catipay  
