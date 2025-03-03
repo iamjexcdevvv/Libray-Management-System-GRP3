@@ -39,7 +39,6 @@ Partial Class admin_dashboard
         Panel6 = New Panel()
         Label5 = New Label()
         Button1 = New Button()
-        Button2 = New Button()
         Panel1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -229,21 +228,11 @@ Partial Class admin_dashboard
         Button1.Text = "Logout"
         Button1.UseVisualStyleBackColor = False
         ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(486, 394)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(75, 23)
-        Button2.TabIndex = 4
-        Button2.Text = "Test"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' admin_dashboard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Panel5)
         Controls.Add(Panel3)
@@ -284,5 +273,4 @@ Partial Class admin_dashboard
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button2 As Button
 End Class
