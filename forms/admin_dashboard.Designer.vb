@@ -216,7 +216,7 @@ Partial Class admin_dashboard
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.Red
+        Button1.BackColor = Color.DarkOrange
         Button1.Cursor = Cursors.Hand
         Button1.FlatStyle = FlatStyle.Popup
         Button1.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
