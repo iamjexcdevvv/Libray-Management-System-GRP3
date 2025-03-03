@@ -1,14 +1,14 @@
 # STRUCTURE EXPLANATION:
 
 ## Login Form
-=Form1.Designer.vb
--Form1.resx
--Form1.vb
+* Form1.Designer.vb
+* Form1.resx
+* Form1.vb
 
 ## Registration Form
-= Form2.Designer.vb
-- Form2.resx
-- Form2.vb
+* Form2.Designer.vb
+* Form2.resx
+* Form2.vb
 
 ## forms folder
 This folder will served as the collection of all forms across the entire application.  
