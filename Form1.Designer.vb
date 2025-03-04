@@ -29,8 +29,9 @@ Partial Class Form1
         TextBox2 = New TextBox()
         PictureBox1 = New PictureBox()
         TextBox3 = New TextBox()
-        Button2 = New Button()
+        PictureBox2 = New PictureBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
@@ -114,16 +115,17 @@ Partial Class Form1
         TextBox3.Text = "Log In Form, Welcome !"
         TextBox3.TextAlign = HorizontalAlignment.Center
         ' 
-        ' Button2
+        ' PictureBox2
         ' 
-        Button2.BackColor = SystemColors.MenuHighlight
-        Button2.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button2.Location = New Point(504, 234)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(86, 32)
-        Button2.TabIndex = 8
-        Button2.Text = "Show"
-        Button2.UseVisualStyleBackColor = False
+        PictureBox2.BackColor = Color.Transparent
+        PictureBox2.Cursor = Cursors.Hand
+        PictureBox2.Image = My.Resources.Resources.hide
+        PictureBox2.Location = New Point(504, 234)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(38, 32)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 7
+        PictureBox2.TabStop = False
         ' 
         ' Form1
         ' 
@@ -133,7 +135,7 @@ Partial Class Form1
         BackgroundImage = My.Resources.Resources.d49ed28d2d1e9861b772d1318e38956d
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(735, 471)
-        Controls.Add(Button2)
+        Controls.Add(PictureBox2)
         Controls.Add(TextBox3)
         Controls.Add(PictureBox1)
         Controls.Add(TextBox2)
@@ -146,6 +148,7 @@ Partial Class Form1
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -157,6 +160,6 @@ Partial Class Form1
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents PictureBox2 As PictureBox
 
 End Class

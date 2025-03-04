@@ -13,20 +13,17 @@
             Me.Close()
         End If
     End Sub
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        If showPass Then
+            showPass = False
+            TextBox2.PasswordChar = "*"
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            PictureBox2.Image = My.Resources.hide
+        Else
+            showPass = True
+            TextBox2.PasswordChar = Nothing
 
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If TextBox2.Text <> "" Then
-            If showPass Then
-                showPass = False
-                TextBox2.PasswordChar = "*"
-            Else
-                showPass = True
-                TextBox2.PasswordChar = Nothing
-            End If
+            PictureBox2.Image = My.Resources.showico
         End If
     End Sub
 End Class
