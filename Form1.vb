@@ -19,12 +19,14 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If showPass Then
-            showPass = False
-            TextBox2.PasswordChar = "*"
-        Else
-            showPass = True
-            TextBox2.PasswordChar = Nothing
+        If TextBox2.Text <> "" Then
+            If showPass Then
+                showPass = False
+                TextBox2.PasswordChar = "*"
+            Else
+                showPass = True
+                TextBox2.PasswordChar = Nothing
+            End If
         End If
     End Sub
 End Class
