@@ -117,4 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="06bd23b8489a38981e7d92ae15cdcfb6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\06bd23b8489a38981e7d92ae15cdcfb6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="f0f3f016054c6cdf294cbfd8b50a88621" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f0f3f016054c6cdf294cbfd8b50a88621.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="42b57666dbe879a032955b85c5dcdcd5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\42b57666dbe879a032955b85c5dcdcd5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="d49ed28d2d1e9861b772d1318e38956d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d49ed28d2d1e9861b772d1318e38956d.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="d49ed28d2d1e9861b772d1318e38956d2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d49ed28d2d1e9861b772d1318e38956d2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="481890996_9016908155024786_8465712070276535578_n (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\481890996_9016908155024786_8465712070276535578_n (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="d49ed28d2d1e9861b772d1318e38956d1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d49ed28d2d1e9861b772d1318e38956d1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cb68145302e9180b5c4b090107be8422" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cb68145302e9180b5c4b090107be8422.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="f0f3f016054c6cdf294cbfd8b50a8862" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f0f3f016054c6cdf294cbfd8b50a8862.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="72a180f85d06b2466885fd7410fc5fbf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\72a180f85d06b2466885fd7410fc5fbf.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="306d87f97821db7335a970cf54406987" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\306d87f97821db7335a970cf54406987.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="19dfdd1c623cbd02ee8e2a851b38e95e" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\19dfdd1c623cbd02ee8e2a851b38e95e.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="482542841_1034380795403402_4070910923172612813_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\482542841_1034380795403402_4070910923172612813_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

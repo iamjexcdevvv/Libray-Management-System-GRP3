@@ -1,6 +1,24 @@
 ﻿Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        admin_dashboard.Show()
-        Me.Close()
+        If TextBox1.Text = "Admin" And TextBox2.Text = "Admin678" Then
+            MsgBox("Welcome to the Library!", vbInformation, "Welcome")
+            admin_dashboard.Show()
+            Me.Close()
+        ElseIf TextBox1.Text = "" And TextBox2.Text = "" Then
+            MsgBox("Fill the blanks", vbCritical, "Fill it!")
+            TextBox1.Clear()
+            TextBox2.Clear()
+        Else
+            MsgBox("Username and Password incorrect", vbCritical, "Incorrrect")
+            TextBox1.Clear()
+            TextBox2.Clear()
+
+
+        End If
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
