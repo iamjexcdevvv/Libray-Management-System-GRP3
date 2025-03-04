@@ -36,6 +36,9 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
+        Button1.Cursor = Cursors.Hand
+        Button1.FlatStyle = FlatStyle.Popup
+        Button1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.Location = New Point(313, 314)
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 31)
@@ -72,7 +75,7 @@ Partial Class Form1
         ' 
         TextBox1.BackColor = Color.OrangeRed
         TextBox1.Font = New Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(228, 153)
+        TextBox1.Location = New Point(228, 155)
         TextBox1.Margin = New Padding(2)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(271, 32)
@@ -94,7 +97,7 @@ Partial Class Form1
         PictureBox1.BackColor = Color.Transparent
         PictureBox1.BackgroundImageLayout = ImageLayout.Center
         PictureBox1.Image = My.Resources.Resources._42b57666dbe879a032955b85c5dcdcd5
-        PictureBox1.Location = New Point(138, 67)
+        PictureBox1.Location = New Point(11, 55)
         PictureBox1.Margin = New Padding(2)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(86, 74)
