@@ -63,9 +63,15 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+<<<<<<< Updated upstream
         Friend ReadOnly Property _06bd23b8489a38981e7d92ae15cdcfb6() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("06bd23b8489a38981e7d92ae15cdcfb6", resourceCulture)
+=======
+        Friend ReadOnly Property _1Library() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1Library", resourceCulture)
+>>>>>>> Stashed changes
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -73,9 +79,15 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+<<<<<<< Updated upstream
         Friend ReadOnly Property _19dfdd1c623cbd02ee8e2a851b38e95e() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("19dfdd1c623cbd02ee8e2a851b38e95e", resourceCulture)
+=======
+        Friend ReadOnly Property _1lilb() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1lilb", resourceCulture)
+>>>>>>> Stashed changes
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -83,9 +95,15 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+<<<<<<< Updated upstream
         Friend ReadOnly Property _306d87f97821db7335a970cf54406987() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("306d87f97821db7335a970cf54406987", resourceCulture)
+=======
+        Friend ReadOnly Property library() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("library", resourceCulture)
+>>>>>>> Stashed changes
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -93,6 +111,7 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+<<<<<<< Updated upstream
         Friend ReadOnly Property _42b57666dbe879a032955b85c5dcdcd5() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("42b57666dbe879a032955b85c5dcdcd5", resourceCulture)
@@ -226,6 +245,11 @@ Namespace My.Resources
         Friend ReadOnly Property showico() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("showico", resourceCulture)
+=======
+        Friend ReadOnly Property library1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("library1", resourceCulture)
+>>>>>>> Stashed changes
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

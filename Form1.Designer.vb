@@ -36,10 +36,14 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
+<<<<<<< Updated upstream
         Button1.Cursor = Cursors.Hand
         Button1.FlatStyle = FlatStyle.Popup
         Button1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.Location = New Point(313, 314)
+=======
+        Button1.Location = New Point(657, 56)
+>>>>>>> Stashed changes
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 31)
         Button1.TabIndex = 0
@@ -134,6 +138,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+<<<<<<< Updated upstream
         BackColor = SystemColors.MenuHighlight
         BackgroundImage = My.Resources.Resources.d49ed28d2d1e9861b772d1318e38956d
         BackgroundImageLayout = ImageLayout.Stretch
@@ -145,6 +150,9 @@ Partial Class Form1
         Controls.Add(TextBox1)
         Controls.Add(Label2)
         Controls.Add(Label1)
+=======
+        ClientSize = New Size(794, 450)
+>>>>>>> Stashed changes
         Controls.Add(Button1)
         MaximizeBox = False
         Name = "Form1"
