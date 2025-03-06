@@ -29,10 +29,10 @@ Partial Class user_dashboard
         Panel2 = New Panel()
         Panel3 = New Panel()
         Panel6 = New Panel()
-        Button3 = New Button()
+        Button2 = New Button()
         PictureBox4 = New PictureBox()
         Panel5 = New Panel()
-        Button2 = New Button()
+        Button4 = New Button()
         PictureBox3 = New PictureBox()
         Panel4 = New Panel()
         Button1 = New Button()
@@ -102,27 +102,26 @@ Partial Class user_dashboard
         ' 
         Panel6.BackColor = SystemColors.ActiveCaption
         Panel6.BorderStyle = BorderStyle.FixedSingle
-        Panel6.Controls.Add(Button3)
+        Panel6.Controls.Add(Button2)
         Panel6.Controls.Add(PictureBox4)
         Panel6.Location = New Point(15, 294)
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(114, 144)
         Panel6.TabIndex = 3
         ' 
-        ' Button3
+        ' Button2
         ' 
-        Button3.BackColor = Color.Transparent
-        Button3.Cursor = Cursors.Hand
-        Button3.FlatStyle = FlatStyle.System
-        Button3.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button3.ForeColor = Color.White
-        Button3.Location = New Point(19, 82)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(75, 57)
-        Button3.TabIndex = 5
-        Button3.Text = "RETURN BOOK"
-        Button3.UseVisualStyleBackColor = False
-        Button3.UseWaitCursor = True
+        Button2.BackColor = SystemColors.ActiveCaption
+        Button2.Cursor = Cursors.Hand
+        Button2.FlatStyle = FlatStyle.System
+        Button2.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.ForeColor = Color.White
+        Button2.Location = New Point(19, 98)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 29)
+        Button2.TabIndex = 4
+        Button2.Text = "RETURN BOOK"
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' PictureBox4
         ' 
@@ -139,27 +138,26 @@ Partial Class user_dashboard
         ' 
         Panel5.BackColor = SystemColors.ActiveCaption
         Panel5.BorderStyle = BorderStyle.FixedSingle
-        Panel5.Controls.Add(Button2)
+        Panel5.Controls.Add(Button4)
         Panel5.Controls.Add(PictureBox3)
         Panel5.Location = New Point(15, 135)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(114, 144)
         Panel5.TabIndex = 2
         ' 
-        ' Button2
+        ' Button4
         ' 
-        Button2.AccessibleRole = AccessibleRole.None
-        Button2.Cursor = Cursors.Hand
-        Button2.FlatStyle = FlatStyle.System
-        Button2.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button2.ForeColor = Color.White
-        Button2.Location = New Point(13, 82)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(89, 57)
-        Button2.TabIndex = 4
-        Button2.Text = "BORROWERS LIST"
-        Button2.UseVisualStyleBackColor = True
-        Button2.UseWaitCursor = True
+        Button4.BackColor = SystemColors.ActiveCaption
+        Button4.Cursor = Cursors.Hand
+        Button4.FlatStyle = FlatStyle.System
+        Button4.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button4.ForeColor = Color.White
+        Button4.Location = New Point(19, 100)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(75, 29)
+        Button4.TabIndex = 4
+        Button4.Text = "BORROW BOOK"
+        Button4.UseVisualStyleBackColor = False
         ' 
         ' PictureBox3
         ' 
@@ -196,7 +194,6 @@ Partial Class user_dashboard
         Button1.TabIndex = 3
         Button1.Text = "LIBRARY"
         Button1.UseVisualStyleBackColor = False
-        Button1.UseWaitCursor = True
         ' 
         ' PictureBox2
         ' 
@@ -218,7 +215,9 @@ Partial Class user_dashboard
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Panel3)
+        MaximizeBox = False
         Name = "user_dashboard"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "user_dashboard"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
@@ -243,8 +242,8 @@ Partial Class user_dashboard
     Friend WithEvents Panel5 As Panel
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents Panel6 As Panel
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button4 As Button
 End Class

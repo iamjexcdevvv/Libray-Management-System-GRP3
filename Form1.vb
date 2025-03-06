@@ -7,6 +7,12 @@
             TextBox2.Clear()
         End If
 
+        If TextBox1.Text = "user" And TextBox2.Text = "user" Then
+            MsgBox("Welcome to the Library!", vbInformation, "Welcome")
+            user_dashboard.Show()
+            Me.Close()
+        End If
+
         If TextBox1.Text = "Admin" And TextBox2.Text = "Admin678" Then
             MsgBox("Welcome to the Library!", vbInformation, "Welcome")
             admin_dashboard.Show()
