@@ -39,7 +39,7 @@ Partial Class Form1
         ' 
         Button1.Cursor = Cursors.Hand
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.Location = New Point(313, 314)
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 31)
@@ -50,32 +50,32 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.ActiveCaptionText
         Label1.ImageAlign = ContentAlignment.TopCenter
         Label1.Location = New Point(228, 127)
         Label1.Margin = New Padding(2, 0, 2, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(119, 26)
+        Label1.Size = New Size(129, 26)
         Label1.TabIndex = 1
         Label1.Text = "Username:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = SystemColors.ActiveCaptionText
         Label2.Location = New Point(228, 206)
         Label2.Margin = New Padding(2, 0, 2, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(114, 26)
+        Label2.Size = New Size(126, 26)
         Label2.TabIndex = 2
         Label2.Text = "Password:"
         ' 
         ' TextBox1
         ' 
         TextBox1.BackColor = Color.OrangeRed
-        TextBox1.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox1.Font = New Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TextBox1.Location = New Point(228, 155)
         TextBox1.Margin = New Padding(2)
         TextBox1.Name = "TextBox1"
@@ -85,7 +85,7 @@ Partial Class Form1
         ' TextBox2
         ' 
         TextBox2.BackColor = Color.OrangeRed
-        TextBox2.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox2.Font = New Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TextBox2.Location = New Point(228, 234)
         TextBox2.Margin = New Padding(2)
         TextBox2.Name = "TextBox2"
@@ -109,12 +109,12 @@ Partial Class Form1
         ' TextBox3
         ' 
         TextBox3.BackColor = Color.OrangeRed
-        TextBox3.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox3.Font = New Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TextBox3.ForeColor = SystemColors.InactiveCaptionText
         TextBox3.Location = New Point(0, 0)
         TextBox3.Margin = New Padding(2)
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(735, 50)
+        TextBox3.Size = New Size(735, 51)
         TextBox3.TabIndex = 6
         TextBox3.Text = "Log In Form, Welcome !"
         TextBox3.TextAlign = HorizontalAlignment.Center
