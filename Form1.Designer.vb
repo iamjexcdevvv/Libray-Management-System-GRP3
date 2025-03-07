@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Button1 = New Button()
         Label1 = New Label()
         Label2 = New Label()
@@ -146,10 +147,11 @@ Partial Class Form1
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(Button1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form1"
+        Text = "Login"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
