@@ -237,6 +237,7 @@ Partial Class admin_dashboard
         Controls.Add(Panel5)
         Controls.Add(Panel3)
         Controls.Add(Panel1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "admin_dashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Admin Dashboard"
