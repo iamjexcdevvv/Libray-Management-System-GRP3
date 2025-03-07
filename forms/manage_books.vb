@@ -188,7 +188,10 @@ Public Class manage_books
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        OpenUserFolder()
+        Dim fileName As String = OpenUserFolder()
+
+        PictureBox2.Image = Image.FromFile(fileName)
+        selectedImageFileName = fileName
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
@@ -199,10 +202,12 @@ Public Class manage_books
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        OpenUserFolder()
-    End Sub
+        Dim fileName As String = OpenUserFolder()
 
-    Private Sub OpenUserFolder()
+        PictureBox2.Image = Image.FromFile(fileName)
+        selectedImageFileName = fileName
+    End Sub
+    Function OpenUserFolder() As String
         Try
             Dim openFileDialog As OpenFileDialog = New OpenFileDialog
 
@@ -211,14 +216,14 @@ Public Class manage_books
             openFileDialog.Title = "Select image"
 
             If openFileDialog.ShowDialog() <> DialogResult.Cancel Then
-                PictureBox2.Image = Image.FromFile(openFileDialog.FileName)
-                selectedImageFileName = openFileDialog.FileName
+                Return openFileDialog.FileName
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
 
+        Return ""
+    End Function
     Private Sub GenerateBookGenreList(bookGenreList As Object)
         Dim bookGenre = New String() {"Fiction", "Non-Fiction", "Poetry", "Drama", "Educational"}
 
