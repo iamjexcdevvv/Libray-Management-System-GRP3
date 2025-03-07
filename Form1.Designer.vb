@@ -39,7 +39,7 @@ Partial Class Form1
         ' 
         Button1.Cursor = Cursors.Hand
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("Arial Rounded MT Bold", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.Location = New Point(313, 314)
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 31)
