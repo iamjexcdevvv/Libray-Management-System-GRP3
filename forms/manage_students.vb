@@ -80,11 +80,14 @@ Public Class manage_students
         ErrorProvider1.Clear()
     End Sub
     Private Sub ClearUserEditField()
+        ComboBox3.Items.Add("")
+        ComboBox3.Text = ""
         TextBox7.Text = ""
         TextBox6.Text = ""
         ComboBox2.Items.Clear()
         ComboBox3.Text = ""
         PictureBox3.Image = My.Resources.photo
+        ComboBox3.Items.Remove("")
 
         TextBox7.Enabled = False
         TextBox6.Enabled = False
@@ -239,7 +242,6 @@ Public Class manage_students
             End Try
         End If
     End Sub
-
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         SaveEditedUserData()
         SaveSelectedStudentProfile()
