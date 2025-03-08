@@ -8,9 +8,11 @@ Imports MySql.Data.MySqlClient
 
 Public Class manage_books
     Private bookCoverImage As Image = My.Resources.photo
-    Private selectedImageFileName As String = "photo.png"
+    Private selectedImageFileName As String = ""
     Dim selectedBookID As Integer = -1
     Private Async Sub LoadBookData(bookID As Integer)
+        GenerateBookGenreList(ComboBox2)
+
         Try
             Dim query As String = "SELECT bookISBN, bookTitle, bookAuthor, bookGenre, bookPublisher, bookCopies, bookCover, bookDateRecieved FROM books WHERE bookID = @bookID"
 
@@ -59,8 +61,6 @@ Public Class manage_books
             NumericUpDown2.Enabled = True
             Button4.Enabled = True
             Button6.Enabled = True
-
-            GenerateBookGenreList(ComboBox2)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -68,6 +68,7 @@ Public Class manage_books
     Private Async Sub LoadBooks()
         Try
             ComboBox3.Items.Clear()
+            ComboBox2.Items.Clear()
 
             Dim query As String = "SELECT bookID FROM books"
             Using conn As New MySqlConnection(connectionString)
@@ -149,28 +150,7 @@ Public Class manage_books
             Try
                 Dim bookIsbn As Integer = Textbox1.Text
 
-                Dim bookCoverFormat As ImageFormat
-                Dim fileExtension = Path.GetExtension(selectedImageFileName).ToLower
-
-                Select Case fileExtension
-                    Case ".jpg", ".jpeg"
-                        bookCoverFormat = ImageFormat.Jpeg
-                    Case ".png"
-                        bookCoverFormat = ImageFormat.Png
-                    Case ".bmp"
-                        bookCoverFormat = ImageFormat.Bmp
-                    Case ".gif"
-                        bookCoverFormat = ImageFormat.Gif
-                    Case ".ico"
-                        bookCoverFormat = ImageFormat.Icon
-                    Case Else
-                        Throw New NotSupportedException("Unsupported image format.")
-                End Select
-
-                Dim mstream As New MemoryStream
-                PictureBox2.Image.Save(mstream, bookCoverFormat)
-                Dim convertedImage = mstream.GetBuffer
-                mstream.Close()
+                Dim convertedImage As Byte() = ConvertBookCoverToByte(PictureBox2)
 
                 SaveNewBook(bookIsbn, TextBox2.Text, TextBox4.Text, ComboBox1.Text, TextBox5.Text, NumericUpDown1.Value, convertedImage, DateTimePicker1.Value.ToShortDateString)
             Catch ex As Exception
@@ -197,9 +177,10 @@ Public Class manage_books
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
-        Dim bookID As Integer = ComboBox3.Text
-
-        LoadBookData(bookID)
+        If ComboBox3.Text <> "" Then
+            Dim bookID As Integer = ComboBox3.Text
+            LoadBookData(bookID)
+        End If
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -227,21 +208,23 @@ Public Class manage_books
 
         Return ""
     End Function
-    Private Sub GenerateBookGenreList(bookGenreList As Object)
+    Private Sub GenerateBookGenreList(bookGenreList As ComboBox)
         Dim bookGenre = New String() {"Fiction", "Non-Fiction", "Poetry", "Drama", "Educational"}
 
         For Each item As String In bookGenre
             bookGenreList.Items.Add(item)
         Next
-
-        bookGenreList.Text = bookGenreList.Items.Item(0)
     End Sub
 
     Private Sub manage_books_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GenerateBookGenreList(ComboBox1)
+
+        ComboBox1.SelectedIndex = 0
     End Sub
 
     Private Sub ClearEditBookFields()
+        ComboBox3.Items.Add("")
+
         ComboBox3.Text = ""
         TextBox8.Text = ""
         TextBox7.Text = ""
@@ -251,6 +234,18 @@ Public Class manage_books
         NumericUpDown2.Value = 0
         DateTimePicker2.Value = Date.Today
         PictureBox3.Image = My.Resources.photo
+
+        TextBox8.Enabled = False
+        TextBox7.Enabled = False
+        ComboBox2.Enabled = False
+        TextBox6.Enabled = False
+        NumericUpDown2.Enabled = False
+        TextBox3.Enabled = False
+        DateTimePicker2.Enabled = False
+        Button4.Enabled = False
+        Button6.Enabled = False
+
+        ComboBox3.Items.Remove("")
     End Sub
 
     Private Sub ClearAddBookFields()
@@ -344,7 +339,7 @@ Public Class manage_books
 
             DisplayBooksRecord()
 
-            MsgBox("Book deleted successfully!", vbInformation, "Manage Book")
+            MsgBox("Book deleted successfully! (ID: " & bookID & ")", vbInformation, "Manage Book")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -387,4 +382,88 @@ Public Class manage_books
         admin_dashboard.Show()
         Close()
     End Sub
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        SaveEditedBookData(ComboBox3.Text, TextBox8.Text, TextBox7.Text, TextBox3.Text, ComboBox2.Text, TextBox6.Text, NumericUpDown2.Value, DateTimePicker2.Value.ToShortDateString())
+        SaveSelectedBookCover()
+
+        MsgBox("Data saved succesfully!", vbInformation)
+        ClearEditBookFields()
+    End Sub
+    Private Async Sub SaveEditedBookData(bookID As Integer, bookIsbn As Integer, bookTitle As String, bookPublisher As String, bookGenre As String, bookAuthor As String, bookCopies As Integer, bookDateRecieved As String)
+        Try
+            Dim query As String = "UPDATE books SET bookISBN = @bookISBN, bookTitle = @bookTitle, bookAuthor = @bookAuthor, bookGenre = @bookGenre, bookPublisher = @bookPublisher, bookCopies = @bookCopies, bookDateRecieved = @bookDateRecieved WHERE bookID = @bookID"
+
+            Using conn As New MySqlConnection(connectionString)
+                conn.Open()
+
+                Using cmd = New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@bookISBN", bookIsbn)
+                    cmd.Parameters.AddWithValue("@bookTitle", bookTitle)
+                    cmd.Parameters.AddWithValue("@bookAuthor", bookAuthor)
+                    cmd.Parameters.AddWithValue("@bookGenre", bookGenre)
+                    cmd.Parameters.AddWithValue("@bookPublisher", bookPublisher)
+                    cmd.Parameters.AddWithValue("@bookCopies", bookCopies)
+                    cmd.Parameters.AddWithValue("@bookDateRecieved", bookDateRecieved)
+                    cmd.Parameters.AddWithValue("@bookID", bookID)
+
+                    Await cmd.ExecuteNonQueryAsync()
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Async Sub SaveSelectedBookCover()
+        If selectedImageFileName <> "" Then
+            Try
+                Dim query As String = "UPDATE books SET bookCover = @bookCover WHERE bookID = @bookID"
+
+                Dim studentProfile As Byte() = ConvertBookCoverToByte(PictureBox3)
+
+                Using conn As New MySqlConnection(connectionString)
+                    conn.Open()
+
+                    Using cmd = New MySqlCommand(query, conn)
+                        cmd.Parameters.AddWithValue("@bookCover", studentProfile)
+                        cmd.Parameters.AddWithValue("@bookID", ComboBox3.Text)
+
+                        Await cmd.ExecuteNonQueryAsync()
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Function ConvertBookCoverToByte(bookCoverPictureBox As PictureBox)
+        If selectedImageFileName = "" Then
+            selectedImageFileName = "photo.png"
+        End If
+
+        Dim bookCoverFormat As ImageFormat
+        Dim fileExtension = Path.GetExtension(selectedImageFileName).ToLower
+
+        Select Case fileExtension
+            Case ".jpg", ".jpeg"
+                bookCoverFormat = ImageFormat.Jpeg
+            Case ".png"
+                bookCoverFormat = ImageFormat.Png
+            Case ".bmp"
+                bookCoverFormat = ImageFormat.Bmp
+            Case ".gif"
+                bookCoverFormat = ImageFormat.Gif
+            Case ".ico"
+                bookCoverFormat = ImageFormat.Icon
+            Case Else
+                Throw New NotSupportedException("Unsupported image format.")
+        End Select
+
+        Dim mstream As New MemoryStream
+        bookCoverPictureBox.Image.Save(mstream, bookCoverFormat)
+        Dim convertedImage = mstream.GetBuffer
+        mstream.Close()
+
+        Return convertedImage
+    End Function
 End Class

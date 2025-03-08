@@ -216,6 +216,7 @@ Partial Class manage_books
         ' 
         ' PictureBox2
         ' 
+        PictureBox2.BackColor = Color.White
         PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
         PictureBox2.Location = New Point(725, 49)
         PictureBox2.Name = "PictureBox2"
@@ -352,7 +353,7 @@ Partial Class manage_books
         TabPage2.Location = New Point(4, 23)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(888, 304)
+        TabPage2.Size = New Size(877, 304)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Edit Book"
         ' 
@@ -372,6 +373,7 @@ Partial Class manage_books
         ' 
         ' ComboBox3
         ' 
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBox3.FormattingEnabled = True
         ComboBox3.Location = New Point(127, 40)
         ComboBox3.Name = "ComboBox3"
@@ -446,6 +448,7 @@ Partial Class manage_books
         ' 
         ' PictureBox3
         ' 
+        PictureBox3.BackColor = Color.White
         PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
         PictureBox3.Location = New Point(731, 74)
         PictureBox3.Name = "PictureBox3"
@@ -568,7 +571,7 @@ Partial Class manage_books
         TabPage3.Location = New Point(4, 23)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(888, 304)
+        TabPage3.Size = New Size(877, 304)
         TabPage3.TabIndex = 2
         TabPage3.Text = "Books"
         TabPage3.UseVisualStyleBackColor = True

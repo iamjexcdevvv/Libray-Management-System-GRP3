@@ -241,11 +241,11 @@ Public Class manage_students
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        SaveEditedUserData
-        SaveSelectedStudentProfile
+        SaveEditedUserData()
+        SaveSelectedStudentProfile()
 
         MsgBox("Data saved succesfully!", vbInformation)
-        ClearUserEditField
+        ClearUserEditField()
     End Sub
     Private Async Sub SaveEditedUserData()
         Try
