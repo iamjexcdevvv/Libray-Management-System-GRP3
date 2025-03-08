@@ -10,6 +10,22 @@ Public Class admin_dashboard
         manage_students.Show()
         Me.Close()
     End Sub
+    Private Async Sub FetchUsersCount()
+        Try
+            Using conn As New MySqlConnection(connectionString)
+                Await conn.OpenAsync()
+
+                Dim query As String = "SELECT count(*) FROM users"
+                Using cmd As New MySqlCommand(query, conn)
+                    Dim usersCount As Integer = Await cmd.ExecuteScalarAsync()
+
+                    TextBox2.Text = usersCount
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Async Sub FetchBooksCount()
         Try
             Using conn As New MySqlConnection(connectionString)
@@ -28,6 +44,7 @@ Public Class admin_dashboard
     End Sub
     Private Sub admin_dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FetchBooksCount()
+        FetchUsersCount()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form1.Show()
