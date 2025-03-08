@@ -128,7 +128,7 @@ Partial Class user_dashboard
         ' Label10
         ' 
         Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        Label10.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
         Label10.ForeColor = SystemColors.ActiveCaption
         Label10.Location = New Point(642, 52)
         Label10.Name = "Label10"
@@ -156,7 +156,7 @@ Partial Class user_dashboard
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
         Label8.Location = New Point(202, 364)
         Label8.Name = "Label8"
         Label8.Size = New Size(387, 21)
@@ -166,7 +166,7 @@ Partial Class user_dashboard
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        Label7.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
         Label7.Location = New Point(153, 215)
         Label7.Name = "Label7"
         Label7.Size = New Size(544, 42)
@@ -177,7 +177,7 @@ Partial Class user_dashboard
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
+        Label6.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
         Label6.Location = New Point(202, 69)
         Label6.Name = "Label6"
         Label6.Size = New Size(404, 21)
@@ -233,7 +233,7 @@ Partial Class user_dashboard
         Button2.BackgroundImageLayout = ImageLayout.Stretch
         Button2.Cursor = Cursors.Hand
         Button2.FlatStyle = FlatStyle.Popup
-        Button2.Font = New Font("Arial Rounded MT Bold", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
         Button2.Location = New Point(35, 84)
         Button2.Name = "Button2"
@@ -270,7 +270,7 @@ Partial Class user_dashboard
         Button3.BackgroundImageLayout = ImageLayout.Stretch
         Button3.Cursor = Cursors.Hand
         Button3.FlatStyle = FlatStyle.Popup
-        Button3.Font = New Font("Arial Rounded MT Bold", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button3.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
         Button3.Location = New Point(35, 84)
         Button3.Name = "Button3"
@@ -307,7 +307,7 @@ Partial Class user_dashboard
         Button1.BackgroundImageLayout = ImageLayout.Stretch
         Button1.Cursor = Cursors.Hand
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Font = New Font("Arial Rounded MT Bold", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.White
         Button1.Location = New Point(35, 84)
         Button1.Name = "Button1"
@@ -328,16 +328,17 @@ Partial Class user_dashboard
         ' 
         ' user_dashboard
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(830, 508)
         Controls.Add(Panel1)
         Controls.Add(Panel3)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "user_dashboard"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "user_dashboard"
+        Text = "User Dashboard"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
