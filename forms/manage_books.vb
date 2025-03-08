@@ -190,22 +190,25 @@ Public Class manage_books
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim fileName As String = OpenUserFolder()
 
-        PictureBox2.Image = Image.FromFile(fileName)
-        selectedImageFileName = fileName
+        If fileName <> "" Then
+            PictureBox2.Image = Image.FromFile(fileName)
+            selectedImageFileName = fileName
+        End If
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
         Dim bookID As Integer = ComboBox3.Text
 
-        'Load book data
         LoadBookData(bookID)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim fileName As String = OpenUserFolder()
 
-        PictureBox2.Image = Image.FromFile(fileName)
-        selectedImageFileName = fileName
+        If fileName <> "" Then
+            PictureBox2.Image = Image.FromFile(fileName)
+            selectedImageFileName = fileName
+        End If
     End Sub
     Function OpenUserFolder() As String
         Try
