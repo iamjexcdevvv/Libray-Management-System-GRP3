@@ -79,4 +79,9 @@ Public Class Form1
         TextBox1.Clear()
         TextBox2.Clear()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form2.Show()
+        Me.Close()
+    End Sub
 End Class
