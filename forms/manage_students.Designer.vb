@@ -30,6 +30,7 @@ Partial Class manage_students
         PictureBox1 = New PictureBox()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
+        Button7 = New Button()
         Button1 = New Button()
         TextBox4 = New TextBox()
         Label5 = New Label()
@@ -44,6 +45,7 @@ Partial Class manage_students
         Label1 = New Label()
         PictureBox2 = New PictureBox()
         TabPage2 = New TabPage()
+        ComboBox3 = New ComboBox()
         Label7 = New Label()
         Button3 = New Button()
         Button4 = New Button()
@@ -53,12 +55,11 @@ Partial Class manage_students
         Label9 = New Label()
         TextBox7 = New TextBox()
         Label10 = New Label()
-        TextBox8 = New TextBox()
-        Label11 = New Label()
         PictureBox3 = New PictureBox()
         TabPage3 = New TabPage()
+        Button5 = New Button()
+        DataGridView1 = New DataGridView()
         ErrorProvider1 = New ErrorProvider(components)
-        ComboBox3 = New ComboBox()
         Panel1.SuspendLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -67,6 +68,8 @@ Partial Class manage_students
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage3.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -130,6 +133,7 @@ Partial Class manage_students
         ' TabPage1
         ' 
         TabPage1.BackColor = Color.FromArgb(CByte(67), CByte(85), CByte(244))
+        TabPage1.Controls.Add(Button7)
         TabPage1.Controls.Add(Button1)
         TabPage1.Controls.Add(TextBox4)
         TabPage1.Controls.Add(Label5)
@@ -149,6 +153,19 @@ Partial Class manage_students
         TabPage1.Size = New Size(875, 360)
         TabPage1.TabIndex = 0
         TabPage1.Text = "Add User"
+        ' 
+        ' Button7
+        ' 
+        Button7.BackColor = Color.Red
+        Button7.Cursor = Cursors.Hand
+        Button7.FlatStyle = FlatStyle.Popup
+        Button7.ForeColor = Color.WhiteSmoke
+        Button7.Location = New Point(301, 292)
+        Button7.Name = "Button7"
+        Button7.Size = New Size(106, 32)
+        Button7.TabIndex = 23
+        Button7.Text = "Clear Fields"
+        Button7.UseVisualStyleBackColor = False
         ' 
         ' Button1
         ' 
@@ -189,7 +206,7 @@ Partial Class manage_students
         Button2.Cursor = Cursors.Hand
         Button2.FlatStyle = FlatStyle.Popup
         Button2.ForeColor = Color.WhiteSmoke
-        Button2.Location = New Point(287, 283)
+        Button2.Location = New Point(179, 292)
         Button2.Name = "Button2"
         Button2.Size = New Size(106, 32)
         Button2.TabIndex = 16
@@ -295,8 +312,6 @@ Partial Class manage_students
         TabPage2.Controls.Add(Label9)
         TabPage2.Controls.Add(TextBox7)
         TabPage2.Controls.Add(Label10)
-        TabPage2.Controls.Add(TextBox8)
-        TabPage2.Controls.Add(Label11)
         TabPage2.Controls.Add(PictureBox3)
         TabPage2.Location = New Point(4, 23)
         TabPage2.Name = "TabPage2"
@@ -304,6 +319,15 @@ Partial Class manage_students
         TabPage2.Size = New Size(875, 360)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Edit User"
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Location = New Point(259, 37)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(160, 22)
+        ComboBox3.TabIndex = 34
         ' 
         ' Label7
         ' 
@@ -339,7 +363,7 @@ Partial Class manage_students
         Button4.Enabled = False
         Button4.FlatStyle = FlatStyle.Popup
         Button4.ForeColor = Color.WhiteSmoke
-        Button4.Location = New Point(284, 288)
+        Button4.Location = New Point(285, 250)
         Button4.Name = "Button4"
         Button4.Size = New Size(106, 32)
         Button4.TabIndex = 29
@@ -351,7 +375,7 @@ Partial Class manage_students
         ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBox2.Enabled = False
         ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(259, 229)
+        ComboBox2.Location = New Point(259, 183)
         ComboBox2.Name = "ComboBox2"
         ComboBox2.Size = New Size(160, 22)
         ComboBox2.TabIndex = 28
@@ -361,7 +385,7 @@ Partial Class manage_students
         Label8.AutoSize = True
         Label8.Font = New Font("Arial Rounded MT Bold", 12F)
         Label8.ForeColor = Color.WhiteSmoke
-        Label8.Location = New Point(204, 229)
+        Label8.Location = New Point(204, 183)
         Label8.Name = "Label8"
         Label8.Size = New Size(49, 18)
         Label8.TabIndex = 27
@@ -370,7 +394,7 @@ Partial Class manage_students
         ' TextBox6
         ' 
         TextBox6.Enabled = False
-        TextBox6.Location = New Point(259, 179)
+        TextBox6.Location = New Point(259, 133)
         TextBox6.Name = "TextBox6"
         TextBox6.Size = New Size(160, 21)
         TextBox6.TabIndex = 26
@@ -380,7 +404,7 @@ Partial Class manage_students
         Label9.AutoSize = True
         Label9.Font = New Font("Arial Rounded MT Bold", 12F)
         Label9.ForeColor = Color.WhiteSmoke
-        Label9.Location = New Point(156, 179)
+        Label9.Location = New Point(156, 133)
         Label9.Name = "Label9"
         Label9.Size = New Size(98, 18)
         Label9.TabIndex = 25
@@ -389,7 +413,7 @@ Partial Class manage_students
         ' TextBox7
         ' 
         TextBox7.Enabled = False
-        TextBox7.Location = New Point(259, 129)
+        TextBox7.Location = New Point(259, 83)
         TextBox7.Name = "TextBox7"
         TextBox7.Size = New Size(160, 21)
         TextBox7.TabIndex = 24
@@ -399,31 +423,11 @@ Partial Class manage_students
         Label10.AutoSize = True
         Label10.Font = New Font("Arial Rounded MT Bold", 12F)
         Label10.ForeColor = Color.WhiteSmoke
-        Label10.Location = New Point(156, 129)
+        Label10.Location = New Point(156, 83)
         Label10.Name = "Label10"
         Label10.Size = New Size(99, 18)
         Label10.TabIndex = 23
         Label10.Text = "First Name:"
-        ' 
-        ' TextBox8
-        ' 
-        TextBox8.Enabled = False
-        TextBox8.Location = New Point(259, 82)
-        TextBox8.Name = "TextBox8"
-        TextBox8.Size = New Size(160, 21)
-        TextBox8.TabIndex = 22
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Arial Rounded MT Bold", 12F)
-        Label11.ForeColor = Color.WhiteSmoke
-        Label11.Location = New Point(156, 82)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(101, 18)
-        Label11.TabIndex = 21
-        Label11.Text = "User Name:"
-        Label11.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PictureBox3
         ' 
@@ -438,6 +442,8 @@ Partial Class manage_students
         ' 
         ' TabPage3
         ' 
+        TabPage3.Controls.Add(Button5)
+        TabPage3.Controls.Add(DataGridView1)
         TabPage3.Location = New Point(4, 23)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
@@ -446,17 +452,31 @@ Partial Class manage_students
         TabPage3.Text = "Users"
         TabPage3.UseVisualStyleBackColor = True
         ' 
+        ' Button5
+        ' 
+        Button5.BackColor = Color.Red
+        Button5.Cursor = Cursors.Hand
+        Button5.FlatStyle = FlatStyle.Popup
+        Button5.ForeColor = Color.WhiteSmoke
+        Button5.Location = New Point(381, 302)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(106, 32)
+        Button5.TabIndex = 30
+        Button5.Text = "Delete User"
+        Button5.UseVisualStyleBackColor = False
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(25, 19)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.Size = New Size(820, 264)
+        DataGridView1.TabIndex = 0
+        ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' ComboBox3
-        ' 
-        ComboBox3.FormattingEnabled = True
-        ComboBox3.Location = New Point(259, 37)
-        ComboBox3.Name = "ComboBox3"
-        ComboBox3.Size = New Size(160, 22)
-        ComboBox3.TabIndex = 34
         ' 
         ' manage_students
         ' 
@@ -481,6 +501,8 @@ Partial Class manage_students
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        TabPage3.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -515,9 +537,10 @@ Partial Class manage_students
     Friend WithEvents Label9 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents Label11 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button7 As Button
 End Class
