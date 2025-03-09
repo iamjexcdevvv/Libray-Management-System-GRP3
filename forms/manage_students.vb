@@ -129,7 +129,7 @@ Public Class manage_students
 
         Select Case selectedTab.Name
             Case "TabPage3"
-                DisplayUsers()
+                DisplayUsersRecord()
             Case "TabPage2"
                 LoadUsers()
         End Select
@@ -225,6 +225,10 @@ Public Class manage_students
             Try
                 Dim query As String = "UPDATE users SET studentProfile = @studentProfile WHERE id = @userID"
 
+                If selectedStudentPhoto = "" Then
+                    selectedStudentPhoto = "photo.png"
+                End If
+
                 Dim studentProfile As Byte() = ConvertSelectedPhotoToByte(PictureBox3)
 
                 Using conn As New MySqlConnection(connectionString)
@@ -292,6 +296,8 @@ Public Class manage_students
         Dim convertedImage = mstream.GetBuffer
         mstream.Close()
 
+        selectedStudentPhoto = ""
+
         Return convertedImage
     End Function
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -303,7 +309,7 @@ Public Class manage_students
             selectedStudentPhoto = fileName
         End If
     End Sub
-    Private Async Sub DisplayUsers()
+    Private Async Sub DisplayUsersRecord()
         Try
             Dim query As String = "SELECT * FROM users"
             Using conn As New MySqlConnection(connectionString)
@@ -316,9 +322,7 @@ Public Class manage_students
                     Dim dataAdapter As New MySqlDataAdapter(cmd)
 
                     dataAdapter.Fill(dataTable)
-
                     DataGridView1.DataSource = dataTable
-                    DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
                 End Using
             End Using
         Catch ex As Exception
@@ -373,28 +377,32 @@ Public Class manage_students
                     Else
                         MessageBox.Show("The DataGridView is already empty.")
                     End If
+
+                    selectedUserID = -1
                 End Using
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Async Sub DeleteUser(selectedUserID As Integer)
+    Private Async Sub DeleteUser(userID As Integer)
         Try
             Using conn As New MySqlConnection(connectionString)
                 Await conn.OpenAsync()
 
                 Dim query As String = "DELETE FROM users WHERE id = @userID"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@userID", selectedUserID)
+                    cmd.Parameters.AddWithValue("@userID", userID)
 
                     Await cmd.ExecuteNonQueryAsync()
+
+                    selectedUserID = -1
                 End Using
             End Using
 
-            DisplayUsers()
+            DisplayUsersRecord()
 
-            MsgBox("The user is deleted successfully!", vbInformation, "Manage User")
+            MsgBox("The user is deleted successfully! (ID: " & userID & ")", vbInformation, "Manage User")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -404,7 +412,7 @@ Public Class manage_students
             If DataGridView1.SelectedRows.Count > 1 Then
                 selectedUserID = 0
             ElseIf DataGridView1.SelectedRows.Count = 1 Then
-                Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+                Dim selectedRow = DataGridView1.SelectedRows(0)
                 selectedUserID = CInt(selectedRow.Cells("id").Value)
             Else
                 Return

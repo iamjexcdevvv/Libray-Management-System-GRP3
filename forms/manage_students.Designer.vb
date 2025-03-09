@@ -58,8 +58,8 @@ Partial Class manage_students
         PictureBox3 = New PictureBox()
         TabPage3 = New TabPage()
         Button5 = New Button()
-        DataGridView1 = New DataGridView()
         ErrorProvider1 = New ErrorProvider(components)
+        DataGridView1 = New DataGridView()
         Panel1.SuspendLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -69,8 +69,8 @@ Partial Class manage_students
         TabPage2.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         TabPage3.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -290,7 +290,7 @@ Partial Class manage_students
         ' 
         ' PictureBox2
         ' 
-        PictureBox2.BackColor = Color.White
+        PictureBox2.BackColor = Color.Transparent
         PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
         PictureBox2.Location = New Point(490, 22)
         PictureBox2.Name = "PictureBox2"
@@ -431,7 +431,7 @@ Partial Class manage_students
         ' 
         ' PictureBox3
         ' 
-        PictureBox3.BackColor = Color.White
+        PictureBox3.BackColor = Color.Transparent
         PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
         PictureBox3.Location = New Point(487, 27)
         PictureBox3.Name = "PictureBox3"
@@ -442,8 +442,8 @@ Partial Class manage_students
         ' 
         ' TabPage3
         ' 
-        TabPage3.Controls.Add(Button5)
         TabPage3.Controls.Add(DataGridView1)
+        TabPage3.Controls.Add(Button5)
         TabPage3.Location = New Point(4, 23)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
@@ -465,18 +465,22 @@ Partial Class manage_students
         Button5.Text = "Delete User"
         Button5.UseVisualStyleBackColor = False
         ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(25, 19)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(820, 264)
-        DataGridView1.TabIndex = 0
-        ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(26, 44)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.Size = New Size(816, 223)
+        DataGridView1.TabIndex = 31
         ' 
         ' manage_students
         ' 
@@ -502,8 +506,8 @@ Partial Class manage_students
         TabPage2.PerformLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         TabPage3.ResumeLayout(False)
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -541,6 +545,6 @@ Partial Class manage_students
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button7 As Button
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

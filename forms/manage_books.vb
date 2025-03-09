@@ -328,6 +328,10 @@ Public Class manage_books
                     Else
                         MessageBox.Show("The DataGridView is already empty.")
                     End If
+
+                    selectedBookID = -1
+
+                    MsgBox("All books from the database has been deleted", vbInformation, "Book")
                 End Using
             End Using
         Catch ex As Exception
@@ -344,6 +348,8 @@ Public Class manage_books
                     cmd.Parameters.AddWithValue("@bookID", bookID)
 
                     Await cmd.ExecuteNonQueryAsync()
+
+                    selectedBookID = -1
                 End Using
             End Using
 
@@ -477,6 +483,8 @@ Public Class manage_books
         bookCoverPictureBox.Image.Save(mstream, bookCoverFormat)
         Dim convertedImage = mstream.GetBuffer
         mstream.Close()
+
+        selectedImageFileName = ""
 
         Return convertedImage
     End Function
