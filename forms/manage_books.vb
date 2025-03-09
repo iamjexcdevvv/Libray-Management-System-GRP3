@@ -12,9 +12,10 @@ Public Class manage_books
     Dim selectedBookID As Integer = -1
     Private Async Sub LoadBookData(bookID As Integer)
         GenerateBookGenreList(ComboBox2)
+        GenerateBookStatusList(ComboBox5)
 
         Try
-            Dim query As String = "SELECT bookISBN, bookTitle, bookAuthor, bookGenre, bookPublisher, bookCopies, bookCover, bookDateRecieved FROM books WHERE bookID = @bookID"
+            Dim query As String = "SELECT bookISBN, bookTitle, bookAuthor, bookGenre, bookPublisher, bookStatus, bookCover, bookPublishedDate FROM books WHERE bookID = @bookID"
 
             Using conn As New MySqlConnection(connectionString)
                 Await conn.OpenAsync()
@@ -27,13 +28,13 @@ Public Class manage_books
                     If reader.HasRows Then
                         Await reader.ReadAsync()
 
-                        Dim bookISBN As Integer = reader.GetInt32("bookISBN")
+                        Dim bookISBN As String = reader.GetString("bookISBN")
                         Dim bookTitle As String = reader.GetString("bookTitle")
                         Dim bookAuthor As String = reader.GetString("bookAuthor")
                         Dim bookGenre As String = reader.GetString("bookGenre")
                         Dim bookPublisher As String = reader.GetString("bookPublisher")
-                        Dim bookCopies As Integer = reader.GetInt32("bookCopies")
-                        Dim bookDateRecieved As String = reader.GetString("bookDateRecieved")
+                        Dim bookStatus As Boolean = reader.GetBoolean("bookStatus")
+                        Dim bookPublishedDate As String = reader.GetString("bookPublishedDate")
 
                         Dim img As Byte() = DirectCast(reader("bookCover"), Byte())
                         Dim ms As New MemoryStream(img)
@@ -42,10 +43,10 @@ Public Class manage_books
                         TextBox7.Text = bookTitle
                         ComboBox2.Text = bookGenre
                         TextBox6.Text = bookAuthor
-                        NumericUpDown2.Value = bookCopies
+                        ComboBox5.Text = If(bookStatus, "Available", "Not available")
                         TextBox3.Text = bookPublisher
                         PictureBox3.Image = Image.FromStream(ms)
-                        DateTimePicker2.Value = bookDateRecieved
+                        DateTimePicker2.Value = bookPublishedDate
                     End If
 
                     reader.Close()
@@ -58,7 +59,7 @@ Public Class manage_books
             TextBox3.Enabled = True
             DateTimePicker2.Enabled = True
             ComboBox2.Enabled = True
-            NumericUpDown2.Enabled = True
+            ComboBox5.Enabled = True
             Button4.Enabled = True
             Button6.Enabled = True
         Catch ex As Exception
@@ -89,10 +90,10 @@ Public Class manage_books
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Async Sub SaveNewBook(bookIsbn As Integer, bookTitle As String, bookAuthor As String, bookGenre As String, bookPublisher As String, bookCopies As Integer, bookCover As Byte(), bookDateRecieved As String)
+    Private Async Sub SaveNewBook(bookIsbn As String, bookTitle As String, bookAuthor As String, bookGenre As String, bookPublisher As String, bookCover As Byte(), bookPublishedDate As String, bookStatus As Boolean)
         Try
-            Dim query As String = "INSERT INTO books (bookIsbn, bookTitle, bookAuthor, bookGenre, bookPublisher, bookCover, bookCopies, bookDateRecieved) " &
-                                  "VALUES (@bookISBN, @bookTitle, @bookAuthor, @bookGenre, @bookPublisher, @bookCover, @bookCopies, @bookDateRecieved)"
+            Dim query As String = "INSERT INTO books (bookIsbn, bookTitle, bookAuthor, bookGenre, bookPublisher, bookCover, bookStatus, bookPublishedDate) " &
+                                  "VALUES (@bookISBN, @bookTitle, @bookAuthor, @bookGenre, @bookPublisher, @bookCover, @bookStatus, @bookPublishedDate)"
 
             Using conn As New MySqlConnection(connectionString)
                 Await conn.OpenAsync()
@@ -104,8 +105,8 @@ Public Class manage_books
                     cmd.Parameters.AddWithValue("@bookGenre", bookGenre)
                     cmd.Parameters.AddWithValue("@bookPublisher", bookPublisher)
                     cmd.Parameters.AddWithValue("@bookCover", bookCover)
-                    cmd.Parameters.AddWithValue("@bookCopies", bookCopies)
-                    cmd.Parameters.AddWithValue("@bookDateRecieved", bookDateRecieved)
+                    cmd.Parameters.AddWithValue("@bookStatus", bookStatus)
+                    cmd.Parameters.AddWithValue("@bookPublishedDate", bookPublishedDate)
 
                     Await cmd.ExecuteNonQueryAsync()
 
@@ -116,43 +117,49 @@ Public Class manage_books
             MsgBox(ex.Message)
         End Try
     End Sub
+    Private Function IsUserInputValid(bookISBN As TextBox, bookTitle As TextBox, bookAuthor As TextBox, bookPublisher As TextBox) As Boolean
+        Dim isValid = True
+
+        If String.IsNullOrEmpty(bookISBN.Text) Then
+            ErrorProvider1.SetError(bookISBN, "Please fill this field!")
+            isValid = False
+        Else
+            ErrorProvider1.SetError(bookISBN, "")
+        End If
+
+        If String.IsNullOrEmpty(bookTitle.Text) Then
+            ErrorProvider1.SetError(bookTitle, "Please fill this field!")
+            isValid = False
+        Else
+            ErrorProvider1.SetError(bookTitle, "")
+        End If
+
+        If String.IsNullOrEmpty(bookAuthor.Text) Then
+            ErrorProvider1.SetError(bookAuthor, "Please fill this field!")
+            isValid = False
+        Else
+            ErrorProvider1.SetError(bookAuthor, "")
+        End If
+
+        If String.IsNullOrEmpty(bookPublisher.Text) Then
+            ErrorProvider1.SetError(bookPublisher, "Please fill this field!")
+            isValid = False
+        Else
+            ErrorProvider1.SetError(bookPublisher, "")
+        End If
+
+        Return isValid
+    End Function
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ErrorProvider1.Clear()
 
-        Dim isValid = True
-
-        If String.IsNullOrEmpty(Textbox1.Text) Then
-            ErrorProvider1.SetError(Textbox1, "Please fill this field!")
-            isValid = False
-        Else
-            If Not IsNumeric(Textbox1.Text) Then
-                ErrorProvider1.SetError(Textbox1, "Only numbers are allowed")
-                isValid = False
-            End If
-        End If
-
-        If String.IsNullOrEmpty(TextBox2.Text) Then
-            ErrorProvider1.SetError(TextBox2, "Please fill this field!")
-            isValid = False
-        End If
-
-        If String.IsNullOrEmpty(TextBox4.Text) Then
-            ErrorProvider1.SetError(TextBox4, "Please fill this field!")
-            isValid = False
-        End If
-
-        If String.IsNullOrEmpty(TextBox5.Text) Then
-            ErrorProvider1.SetError(TextBox5, "Please fill this field!")
-            isValid = False
-        End If
-
-        If isValid Then
+        If (IsUserInputValid(Textbox1, TextBox2, TextBox4, TextBox5)) Then
             Try
-                Dim bookIsbn As Integer = Textbox1.Text
-
                 Dim convertedImage As Byte() = ConvertBookCoverToByte(PictureBox2)
+                Dim bookStatus As Boolean = If(ComboBox4.Text = "Available", True, False)
 
-                SaveNewBook(bookIsbn, TextBox2.Text, TextBox4.Text, ComboBox1.Text, TextBox5.Text, NumericUpDown1.Value, convertedImage, DateTimePicker1.Value.ToShortDateString)
+                SaveNewBook(Textbox1.Text, TextBox2.Text, TextBox4.Text, ComboBox1.Text, TextBox5.Text, convertedImage, DateTimePicker1.Value.ToShortDateString, bookStatus)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -164,7 +171,6 @@ Public Class manage_books
             PictureBox2.Image = bookCoverImage
             DateTimePicker1.Value = Date.Today
             ComboBox1.Text = ComboBox1.Items.Item(0)
-            NumericUpDown1.Value = 0
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -218,12 +224,14 @@ Public Class manage_books
 
     Private Sub manage_books_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GenerateBookGenreList(ComboBox1)
+        GenerateBookStatusList(ComboBox4)
 
         ComboBox1.SelectedIndex = 0
     End Sub
 
     Private Sub ClearEditBookFields()
         ComboBox3.Items.Add("")
+        ComboBox5.Items.Add("")
 
         ComboBox3.Text = ""
         TextBox8.Text = ""
@@ -231,7 +239,7 @@ Public Class manage_books
         ComboBox2.Text = ""
         TextBox6.Text = ""
         TextBox3.Text = ""
-        NumericUpDown2.Value = 0
+        ComboBox5.Text = ""
         DateTimePicker2.Value = Date.Today
         PictureBox3.Image = My.Resources.photo
 
@@ -239,13 +247,16 @@ Public Class manage_books
         TextBox7.Enabled = False
         ComboBox2.Enabled = False
         TextBox6.Enabled = False
-        NumericUpDown2.Enabled = False
+        ComboBox5.Enabled = False
         TextBox3.Enabled = False
         DateTimePicker2.Enabled = False
         Button4.Enabled = False
         Button6.Enabled = False
 
         ComboBox3.Items.Remove("")
+        ComboBox5.Items.Remove("")
+
+        ErrorProvider1.Clear()
     End Sub
 
     Private Sub ClearAddBookFields()
@@ -254,7 +265,6 @@ Public Class manage_books
         TextBox4.Text = ""
         TextBox5.Text = ""
         ComboBox1.Text = ComboBox1.Items.Item(0)
-        NumericUpDown1.Value = 0
         DateTimePicker1.Value = Date.Today
         PictureBox2.Image = My.Resources.photo
     End Sub
@@ -383,15 +393,19 @@ Public Class manage_books
         Close()
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        SaveEditedBookData(ComboBox3.Text, TextBox8.Text, TextBox7.Text, TextBox3.Text, ComboBox2.Text, TextBox6.Text, NumericUpDown2.Value, DateTimePicker2.Value.ToShortDateString())
-        SaveSelectedBookCover()
+        If (IsUserInputValid(TextBox8, TextBox7, TextBox6, TextBox3)) Then
+            Dim bookStatus As Boolean = If(ComboBox5.Text = "Available", True, False)
 
-        MsgBox("Data saved succesfully!", vbInformation)
-        ClearEditBookFields()
+            SaveEditedBookData(ComboBox3.Text, TextBox8.Text, TextBox7.Text, TextBox3.Text, ComboBox2.Text, TextBox6.Text, bookStatus, DateTimePicker2.Value.ToShortDateString())
+            SaveSelectedBookCover()
+
+            MsgBox("Data saved succesfully!", vbInformation)
+            ClearEditBookFields()
+        End If
     End Sub
-    Private Async Sub SaveEditedBookData(bookID As Integer, bookIsbn As Integer, bookTitle As String, bookPublisher As String, bookGenre As String, bookAuthor As String, bookCopies As Integer, bookDateRecieved As String)
+    Private Async Sub SaveEditedBookData(bookID As Integer, bookIsbn As String, bookTitle As String, bookPublisher As String, bookGenre As String, bookAuthor As String, bookStatus As Boolean, bookPublishedDate As String)
         Try
-            Dim query As String = "UPDATE books SET bookISBN = @bookISBN, bookTitle = @bookTitle, bookAuthor = @bookAuthor, bookGenre = @bookGenre, bookPublisher = @bookPublisher, bookCopies = @bookCopies, bookDateRecieved = @bookDateRecieved WHERE bookID = @bookID"
+            Dim query As String = "UPDATE books SET bookISBN = @bookISBN, bookTitle = @bookTitle, bookAuthor = @bookAuthor, bookGenre = @bookGenre, bookPublisher = @bookPublisher, bookStatus = @bookStatus, bookPublishedDate = @bookPublishedDate WHERE bookID = @bookID"
 
             Using conn As New MySqlConnection(connectionString)
                 conn.Open()
@@ -402,8 +416,8 @@ Public Class manage_books
                     cmd.Parameters.AddWithValue("@bookAuthor", bookAuthor)
                     cmd.Parameters.AddWithValue("@bookGenre", bookGenre)
                     cmd.Parameters.AddWithValue("@bookPublisher", bookPublisher)
-                    cmd.Parameters.AddWithValue("@bookCopies", bookCopies)
-                    cmd.Parameters.AddWithValue("@bookDateRecieved", bookDateRecieved)
+                    cmd.Parameters.AddWithValue("@bookStatus", bookStatus)
+                    cmd.Parameters.AddWithValue("@bookPublishedDate", bookPublishedDate)
                     cmd.Parameters.AddWithValue("@bookID", bookID)
 
                     Await cmd.ExecuteNonQueryAsync()
@@ -466,4 +480,10 @@ Public Class manage_books
 
         Return convertedImage
     End Function
+    Private Sub GenerateBookStatusList(statusListBox As ComboBox)
+        statusListBox.Items.Add("Available")
+        statusListBox.Items.Add("Not available")
+
+        statusListBox.SelectedIndex = 0
+    End Sub
 End Class

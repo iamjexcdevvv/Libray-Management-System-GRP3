@@ -26,6 +26,7 @@ Partial Class manage_books
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(manage_books))
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
+        ComboBox4 = New ComboBox()
         Button7 = New Button()
         ComboBox1 = New ComboBox()
         DateTimePicker1 = New DateTimePicker()
@@ -36,7 +37,6 @@ Partial Class manage_books
         PictureBox2 = New PictureBox()
         TextBox5 = New TextBox()
         Label7 = New Label()
-        NumericUpDown1 = New NumericUpDown()
         Label5 = New Label()
         TextBox4 = New TextBox()
         TextBox2 = New TextBox()
@@ -46,6 +46,7 @@ Partial Class manage_books
         Label2 = New Label()
         Label1 = New Label()
         TabPage2 = New TabPage()
+        ComboBox5 = New ComboBox()
         Button6 = New Button()
         ComboBox3 = New ComboBox()
         Label18 = New Label()
@@ -57,7 +58,6 @@ Partial Class manage_books
         PictureBox3 = New PictureBox()
         TextBox3 = New TextBox()
         Label12 = New Label()
-        NumericUpDown2 = New NumericUpDown()
         Label13 = New Label()
         TextBox6 = New TextBox()
         TextBox7 = New TextBox()
@@ -77,10 +77,8 @@ Partial Class manage_books
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
-        CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
         TabPage3.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
@@ -106,6 +104,7 @@ Partial Class manage_books
         ' TabPage1
         ' 
         TabPage1.BackColor = Color.FromArgb(CByte(67), CByte(85), CByte(244))
+        TabPage1.Controls.Add(ComboBox4)
         TabPage1.Controls.Add(Button7)
         TabPage1.Controls.Add(ComboBox1)
         TabPage1.Controls.Add(DateTimePicker1)
@@ -116,7 +115,6 @@ Partial Class manage_books
         TabPage1.Controls.Add(PictureBox2)
         TabPage1.Controls.Add(TextBox5)
         TabPage1.Controls.Add(Label7)
-        TabPage1.Controls.Add(NumericUpDown1)
         TabPage1.Controls.Add(Label5)
         TabPage1.Controls.Add(TextBox4)
         TabPage1.Controls.Add(TextBox2)
@@ -132,6 +130,15 @@ Partial Class manage_books
         TabPage1.Size = New Size(877, 304)
         TabPage1.TabIndex = 0
         TabPage1.Text = "Add Book"
+        ' 
+        ' ComboBox4
+        ' 
+        ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox4.FormattingEnabled = True
+        ComboBox4.Location = New Point(456, 39)
+        ComboBox4.Name = "ComboBox4"
+        ComboBox4.Size = New Size(141, 22)
+        ComboBox4.TabIndex = 23
         ' 
         ' Button7
         ' 
@@ -160,7 +167,7 @@ Partial Class manage_books
         ' 
         DateTimePicker1.CustomFormat = "dd/MM/yyyy"
         DateTimePicker1.Format = DateTimePickerFormat.Custom
-        DateTimePicker1.Location = New Point(441, 138)
+        DateTimePicker1.Location = New Point(456, 139)
         DateTimePicker1.Name = "DateTimePicker1"
         DateTimePicker1.Size = New Size(94, 21)
         DateTimePicker1.TabIndex = 19
@@ -170,18 +177,18 @@ Partial Class manage_books
         Label9.AutoSize = True
         Label9.Font = New Font("Arial Rounded MT Bold", 12F)
         Label9.ForeColor = Color.WhiteSmoke
-        Label9.Location = New Point(305, 136)
+        Label9.Location = New Point(317, 138)
         Label9.Name = "Label9"
-        Label9.Size = New Size(130, 18)
+        Label9.Size = New Size(133, 18)
         Label9.TabIndex = 18
-        Label9.Text = "Date Recieved:"
+        Label9.Text = "Published Date:"
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Arial Rounded MT Bold", 12F)
         Label8.ForeColor = Color.WhiteSmoke
-        Label8.Location = New Point(739, 19)
+        Label8.Location = New Point(715, 18)
         Label8.Name = "Label8"
         Label8.Size = New Size(101, 18)
         Label8.TabIndex = 17
@@ -206,7 +213,7 @@ Partial Class manage_books
         Button1.Cursor = Cursors.Hand
         Button1.Image = CType(resources.GetObject("Button1.Image"), Image)
         Button1.ImageAlign = ContentAlignment.MiddleLeft
-        Button1.Location = New Point(739, 198)
+        Button1.Location = New Point(715, 197)
         Button1.Name = "Button1"
         Button1.Size = New Size(104, 37)
         Button1.TabIndex = 14
@@ -216,9 +223,9 @@ Partial Class manage_books
         ' 
         ' PictureBox2
         ' 
-        PictureBox2.BackColor = Color.White
+        PictureBox2.BackColor = Color.Transparent
         PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(725, 49)
+        PictureBox2.Location = New Point(701, 48)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(130, 143)
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
@@ -227,7 +234,7 @@ Partial Class manage_books
         ' 
         ' TextBox5
         ' 
-        TextBox5.Location = New Point(441, 86)
+        TextBox5.Location = New Point(456, 87)
         TextBox5.Name = "TextBox5"
         TextBox5.Size = New Size(141, 21)
         TextBox5.TabIndex = 12
@@ -237,30 +244,22 @@ Partial Class manage_books
         Label7.AutoSize = True
         Label7.Font = New Font("Arial Rounded MT Bold", 12F)
         Label7.ForeColor = Color.WhiteSmoke
-        Label7.Location = New Point(347, 86)
+        Label7.Location = New Point(362, 87)
         Label7.Name = "Label7"
         Label7.Size = New Size(88, 18)
         Label7.TabIndex = 11
         Label7.Text = "Publisher:"
-        ' 
-        ' NumericUpDown1
-        ' 
-        NumericUpDown1.Location = New Point(441, 37)
-        NumericUpDown1.Name = "NumericUpDown1"
-        NumericUpDown1.Size = New Size(94, 21)
-        NumericUpDown1.TabIndex = 10
-        NumericUpDown1.ThousandsSeparator = True
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Arial Rounded MT Bold", 12F)
         Label5.ForeColor = Color.WhiteSmoke
-        Label5.Location = New Point(354, 37)
+        Label5.Location = New Point(383, 38)
         Label5.Name = "Label5"
-        Label5.Size = New Size(81, 18)
+        Label5.Size = New Size(65, 18)
         Label5.TabIndex = 8
-        Label5.Text = "Quantity:"
+        Label5.Text = "Status:"
         ' 
         ' TextBox4
         ' 
@@ -330,6 +329,7 @@ Partial Class manage_books
         ' TabPage2
         ' 
         TabPage2.BackColor = Color.FromArgb(CByte(67), CByte(85), CByte(244))
+        TabPage2.Controls.Add(ComboBox5)
         TabPage2.Controls.Add(Button6)
         TabPage2.Controls.Add(ComboBox3)
         TabPage2.Controls.Add(Label18)
@@ -341,7 +341,6 @@ Partial Class manage_books
         TabPage2.Controls.Add(PictureBox3)
         TabPage2.Controls.Add(TextBox3)
         TabPage2.Controls.Add(Label12)
-        TabPage2.Controls.Add(NumericUpDown2)
         TabPage2.Controls.Add(Label13)
         TabPage2.Controls.Add(TextBox6)
         TabPage2.Controls.Add(TextBox7)
@@ -356,6 +355,15 @@ Partial Class manage_books
         TabPage2.Size = New Size(877, 304)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Edit Book"
+        ' 
+        ' ComboBox5
+        ' 
+        ComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox5.FormattingEnabled = True
+        ComboBox5.Location = New Point(447, 62)
+        ComboBox5.Name = "ComboBox5"
+        ComboBox5.Size = New Size(141, 22)
+        ComboBox5.TabIndex = 42
         ' 
         ' Button6
         ' 
@@ -415,11 +423,11 @@ Partial Class manage_books
         Label10.AutoSize = True
         Label10.Font = New Font("Arial Rounded MT Bold", 12F)
         Label10.ForeColor = Color.WhiteSmoke
-        Label10.Location = New Point(311, 161)
+        Label10.Location = New Point(308, 161)
         Label10.Name = "Label10"
-        Label10.Size = New Size(130, 18)
+        Label10.Size = New Size(133, 18)
         Label10.TabIndex = 36
-        Label10.Text = "Date Recieved:"
+        Label10.Text = "Published Date:"
         ' 
         ' Label11
         ' 
@@ -448,7 +456,7 @@ Partial Class manage_books
         ' 
         ' PictureBox3
         ' 
-        PictureBox3.BackColor = Color.White
+        PictureBox3.BackColor = Color.Transparent
         PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
         PictureBox3.Location = New Point(731, 74)
         PictureBox3.Name = "PictureBox3"
@@ -476,25 +484,16 @@ Partial Class manage_books
         Label12.TabIndex = 31
         Label12.Text = "Publisher:"
         ' 
-        ' NumericUpDown2
-        ' 
-        NumericUpDown2.Enabled = False
-        NumericUpDown2.Location = New Point(447, 62)
-        NumericUpDown2.Name = "NumericUpDown2"
-        NumericUpDown2.Size = New Size(94, 21)
-        NumericUpDown2.TabIndex = 30
-        NumericUpDown2.ThousandsSeparator = True
-        ' 
         ' Label13
         ' 
         Label13.AutoSize = True
         Label13.Font = New Font("Arial Rounded MT Bold", 12F)
         Label13.ForeColor = Color.WhiteSmoke
-        Label13.Location = New Point(373, 62)
+        Label13.Location = New Point(376, 62)
         Label13.Name = "Label13"
-        Label13.Size = New Size(68, 18)
+        Label13.Size = New Size(65, 18)
         Label13.TabIndex = 29
-        Label13.Text = "Copies:"
+        Label13.Text = "Status:"
         ' 
         ' TextBox6
         ' 
@@ -598,6 +597,7 @@ Partial Class manage_books
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Location = New Point(28, 18)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
         DataGridView1.Size = New Size(816, 223)
         DataGridView1.TabIndex = 0
         ' 
@@ -664,11 +664,9 @@ Partial Class manage_books
         TabPage1.ResumeLayout(False)
         TabPage1.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
-        CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
         TabPage3.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel1.ResumeLayout(False)
@@ -689,7 +687,6 @@ Partial Class manage_books
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Textbox1 As TextBox
     Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label6 As Label
@@ -711,7 +708,6 @@ Partial Class manage_books
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents NumericUpDown2 As NumericUpDown
     Friend WithEvents Label13 As Label
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox7 As TextBox
@@ -729,4 +725,6 @@ Partial Class manage_books
     Friend WithEvents Button9 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents ComboBox5 As ComboBox
 End Class
