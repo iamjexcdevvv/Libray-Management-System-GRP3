@@ -19,7 +19,7 @@ Public Class admin_dashboard
                 Using cmd As New MySqlCommand(query, conn)
                     Dim usersCount As Integer = Await cmd.ExecuteScalarAsync()
 
-                    TextBox2.Text = usersCount
+                    Label7.Text = usersCount
                 End Using
             End Using
         Catch ex As Exception
@@ -35,7 +35,7 @@ Public Class admin_dashboard
                 Using cmd As New MySqlCommand(query, conn)
                     Dim bookCounts As Integer = Await cmd.ExecuteScalarAsync()
 
-                    TextBox1.Text = bookCounts
+                    Label6.Text = bookCounts
                 End Using
             End Using
         Catch ex As Exception

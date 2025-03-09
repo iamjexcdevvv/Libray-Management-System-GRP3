@@ -31,14 +31,14 @@ Partial Class admin_dashboard
         Panel2 = New Panel()
         Label3 = New Label()
         Panel3 = New Panel()
-        TextBox1 = New TextBox()
         Panel4 = New Panel()
         Label4 = New Label()
         Panel5 = New Panel()
-        TextBox2 = New TextBox()
         Panel6 = New Panel()
         Label5 = New Label()
         Button1 = New Button()
+        Label6 = New Label()
+        Label7 = New Label()
         Panel1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -129,26 +129,12 @@ Partial Class admin_dashboard
         ' Panel3
         ' 
         Panel3.BackColor = SystemColors.ActiveCaption
-        Panel3.Controls.Add(TextBox1)
+        Panel3.Controls.Add(Label6)
         Panel3.Controls.Add(Panel4)
         Panel3.Location = New Point(314, 20)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(200, 118)
         Panel3.TabIndex = 1
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.BackColor = SystemColors.ActiveCaption
-        TextBox1.BorderStyle = BorderStyle.None
-        TextBox1.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(3, 66)
-        TextBox1.Name = "TextBox1"
-        TextBox1.ReadOnly = True
-        TextBox1.Size = New Size(194, 19)
-        TextBox1.TabIndex = 3
-        TextBox1.TabStop = False
-        TextBox1.Text = "0"
-        TextBox1.TextAlign = HorizontalAlignment.Center
         ' 
         ' Panel4
         ' 
@@ -166,33 +152,19 @@ Partial Class admin_dashboard
         Label4.ForeColor = Color.WhiteSmoke
         Label4.Location = New Point(3, 20)
         Label4.Name = "Label4"
-        Label4.Size = New Size(116, 15)
+        Label4.Size = New Size(82, 15)
         Label4.TabIndex = 5
-        Label4.Text = "Number of Books"
+        Label4.Text = "Total Books"
         ' 
         ' Panel5
         ' 
         Panel5.BackColor = SystemColors.ActiveCaption
-        Panel5.Controls.Add(TextBox2)
+        Panel5.Controls.Add(Label7)
         Panel5.Controls.Add(Panel6)
         Panel5.Location = New Point(537, 20)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(200, 118)
         Panel5.TabIndex = 2
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.BackColor = SystemColors.ActiveCaption
-        TextBox2.BorderStyle = BorderStyle.None
-        TextBox2.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox2.Location = New Point(3, 66)
-        TextBox2.Name = "TextBox2"
-        TextBox2.ReadOnly = True
-        TextBox2.Size = New Size(194, 19)
-        TextBox2.TabIndex = 4
-        TextBox2.TabStop = False
-        TextBox2.Text = "0"
-        TextBox2.TextAlign = HorizontalAlignment.Center
         ' 
         ' Panel6
         ' 
@@ -210,9 +182,9 @@ Partial Class admin_dashboard
         Label5.ForeColor = Color.WhiteSmoke
         Label5.Location = New Point(3, 20)
         Label5.Name = "Label5"
-        Label5.Size = New Size(115, 15)
+        Label5.Size = New Size(81, 15)
         Label5.TabIndex = 5
-        Label5.Text = "Number of Users"
+        Label5.Text = "Total Users"
         ' 
         ' Button1
         ' 
@@ -227,6 +199,26 @@ Partial Class admin_dashboard
         Button1.TabIndex = 3
         Button1.Text = "Logout"
         Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Label6
+        ' 
+        Label6.Font = New Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label6.Location = New Point(0, 66)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(200, 23)
+        Label6.TabIndex = 4
+        Label6.Text = "0"
+        Label6.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label7
+        ' 
+        Label7.Font = New Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(0, 66)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(200, 23)
+        Label7.TabIndex = 5
+        Label7.Text = "0"
+        Label7.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' admin_dashboard
         ' 
@@ -248,11 +240,9 @@ Partial Class admin_dashboard
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         Panel3.ResumeLayout(False)
-        Panel3.PerformLayout()
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         Panel5.ResumeLayout(False)
-        Panel5.PerformLayout()
         Panel6.ResumeLayout(False)
         Panel6.PerformLayout()
         ResumeLayout(False)
@@ -272,6 +262,6 @@ Partial Class admin_dashboard
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
 End Class
