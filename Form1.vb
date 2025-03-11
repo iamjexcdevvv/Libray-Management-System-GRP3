@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports MySql.Data.MySqlClient
 
 Public Class Form1
     Dim showPass As Boolean
@@ -71,8 +72,8 @@ Public Class Form1
                 admin_dashboard.Show()
                 Me.Close()
             Case "Student"
-                user_dashboard.Show()
-                Me.Close()
+                Dim userDashboard As user_dashboard = New user_dashboard()
+                userDashboard.FetchUserData(TextBox1.Text)
         End Select
     End Sub
     Private Sub ClearLoginFields()

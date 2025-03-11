@@ -30,6 +30,13 @@ Partial Class manage_students
         PictureBox1 = New PictureBox()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
+        Label14 = New Label()
+        Label13 = New Label()
+        RadioButton2 = New RadioButton()
+        RadioButton1 = New RadioButton()
+        Label12 = New Label()
+        TextBox5 = New TextBox()
+        Label11 = New Label()
         Button7 = New Button()
         Button1 = New Button()
         TextBox4 = New TextBox()
@@ -43,7 +50,6 @@ Partial Class manage_students
         Label2 = New Label()
         Textbox1 = New TextBox()
         Label1 = New Label()
-        PictureBox2 = New PictureBox()
         TabPage2 = New TabPage()
         ComboBox3 = New ComboBox()
         Label7 = New Label()
@@ -57,20 +63,19 @@ Partial Class manage_students
         Label10 = New Label()
         PictureBox3 = New PictureBox()
         TabPage3 = New TabPage()
+        DataGridView1 = New DataGridView()
         Button5 = New Button()
         ErrorProvider1 = New ErrorProvider(components)
-        DataGridView1 = New DataGridView()
         Panel1.SuspendLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         TabPage3.SuspendLayout()
-        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -124,15 +129,22 @@ Partial Class manage_students
         TabControl1.Controls.Add(TabPage3)
         TabControl1.Cursor = Cursors.Hand
         TabControl1.Font = New Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TabControl1.Location = New Point(0, 64)
+        TabControl1.Location = New Point(-7, 75)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
-        TabControl1.Size = New Size(883, 387)
+        TabControl1.Size = New Size(890, 380)
         TabControl1.TabIndex = 3
         ' 
         ' TabPage1
         ' 
         TabPage1.BackColor = Color.FromArgb(CByte(67), CByte(85), CByte(244))
+        TabPage1.Controls.Add(Label14)
+        TabPage1.Controls.Add(Label13)
+        TabPage1.Controls.Add(RadioButton2)
+        TabPage1.Controls.Add(RadioButton1)
+        TabPage1.Controls.Add(Label12)
+        TabPage1.Controls.Add(TextBox5)
+        TabPage1.Controls.Add(Label11)
         TabPage1.Controls.Add(Button7)
         TabPage1.Controls.Add(Button1)
         TabPage1.Controls.Add(TextBox4)
@@ -146,13 +158,88 @@ Partial Class manage_students
         TabPage1.Controls.Add(Label2)
         TabPage1.Controls.Add(Textbox1)
         TabPage1.Controls.Add(Label1)
-        TabPage1.Controls.Add(PictureBox2)
         TabPage1.Location = New Point(4, 23)
         TabPage1.Name = "TabPage1"
         TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(875, 360)
+        TabPage1.Size = New Size(882, 353)
         TabPage1.TabIndex = 0
         TabPage1.Text = "Add User"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Location = New Point(598, 201)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(88, 14)
+        Label14.TabIndex = 30
+        Label14.Text = "No file chosen"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Arial Rounded MT Bold", 12F)
+        Label13.ForeColor = Color.WhiteSmoke
+        Label13.Location = New Point(408, 197)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(184, 18)
+        Label13.TabIndex = 29
+        Label13.Text = "Please select a photo:"
+        Label13.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' RadioButton2
+        ' 
+        RadioButton2.AutoSize = True
+        RadioButton2.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RadioButton2.Location = New Point(270, 199)
+        RadioButton2.Name = "RadioButton2"
+        RadioButton2.Size = New Size(73, 19)
+        RadioButton2.TabIndex = 28
+        RadioButton2.Text = "Female"
+        RadioButton2.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton1
+        ' 
+        RadioButton1.AutoSize = True
+        RadioButton1.Checked = True
+        RadioButton1.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RadioButton1.Location = New Point(194, 199)
+        RadioButton1.Name = "RadioButton1"
+        RadioButton1.Size = New Size(56, 19)
+        RadioButton1.TabIndex = 27
+        RadioButton1.TabStop = True
+        RadioButton1.Text = "Male"
+        RadioButton1.UseVisualStyleBackColor = True
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Arial Rounded MT Bold", 12F)
+        Label12.ForeColor = Color.WhiteSmoke
+        Label12.Location = New Point(115, 197)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(73, 18)
+        Label12.TabIndex = 26
+        Label12.Text = "Gender:"
+        Label12.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.Location = New Point(598, 45)
+        TextBox5.Name = "TextBox5"
+        TextBox5.Size = New Size(145, 21)
+        TextBox5.TabIndex = 25
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Arial Rounded MT Bold", 12F)
+        Label11.ForeColor = Color.WhiteSmoke
+        Label11.Location = New Point(464, 45)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(128, 18)
+        Label11.TabIndex = 24
+        Label11.Text = "Email Account:"
+        Label11.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Button7
         ' 
@@ -160,7 +247,7 @@ Partial Class manage_students
         Button7.Cursor = Cursors.Hand
         Button7.FlatStyle = FlatStyle.Popup
         Button7.ForeColor = Color.WhiteSmoke
-        Button7.Location = New Point(301, 292)
+        Button7.Location = New Point(361, 270)
         Button7.Name = "Button7"
         Button7.Size = New Size(106, 32)
         Button7.TabIndex = 23
@@ -173,17 +260,17 @@ Partial Class manage_students
         Button1.Cursor = Cursors.Hand
         Button1.Image = CType(resources.GetObject("Button1.Image"), Image)
         Button1.ImageAlign = ContentAlignment.MiddleLeft
-        Button1.Location = New Point(563, 292)
+        Button1.Location = New Point(598, 227)
         Button1.Name = "Button1"
         Button1.Size = New Size(104, 37)
         Button1.TabIndex = 19
-        Button1.Text = "Select File"
+        Button1.Text = "Browse..."
         Button1.TextAlign = ContentAlignment.MiddleRight
         Button1.UseVisualStyleBackColor = False
         ' 
         ' TextBox4
         ' 
-        TextBox4.Location = New Point(259, 233)
+        TextBox4.Location = New Point(598, 94)
         TextBox4.Name = "TextBox4"
         TextBox4.PasswordChar = "*"c
         TextBox4.Size = New Size(160, 21)
@@ -194,7 +281,7 @@ Partial Class manage_students
         Label5.AutoSize = True
         Label5.Font = New Font("Arial Rounded MT Bold", 12F)
         Label5.ForeColor = Color.WhiteSmoke
-        Label5.Location = New Point(161, 232)
+        Label5.Location = New Point(500, 93)
         Label5.Name = "Label5"
         Label5.Size = New Size(92, 18)
         Label5.TabIndex = 17
@@ -206,7 +293,7 @@ Partial Class manage_students
         Button2.Cursor = Cursors.Hand
         Button2.FlatStyle = FlatStyle.Popup
         Button2.ForeColor = Color.WhiteSmoke
-        Button2.Location = New Point(179, 292)
+        Button2.Location = New Point(237, 270)
         Button2.Name = "Button2"
         Button2.Size = New Size(106, 32)
         Button2.TabIndex = 16
@@ -217,7 +304,7 @@ Partial Class manage_students
         ' 
         ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(259, 184)
+        ComboBox1.Location = New Point(598, 144)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(160, 22)
         ComboBox1.TabIndex = 11
@@ -227,7 +314,7 @@ Partial Class manage_students
         Label4.AutoSize = True
         Label4.Font = New Font("Arial Rounded MT Bold", 12F)
         Label4.ForeColor = Color.WhiteSmoke
-        Label4.Location = New Point(204, 184)
+        Label4.Location = New Point(543, 144)
         Label4.Name = "Label4"
         Label4.Size = New Size(49, 18)
         Label4.TabIndex = 10
@@ -235,7 +322,7 @@ Partial Class manage_students
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(259, 134)
+        TextBox3.Location = New Point(194, 143)
         TextBox3.Name = "TextBox3"
         TextBox3.Size = New Size(160, 21)
         TextBox3.TabIndex = 9
@@ -245,7 +332,7 @@ Partial Class manage_students
         Label3.AutoSize = True
         Label3.Font = New Font("Arial Rounded MT Bold", 12F)
         Label3.ForeColor = Color.WhiteSmoke
-        Label3.Location = New Point(156, 134)
+        Label3.Location = New Point(91, 143)
         Label3.Name = "Label3"
         Label3.Size = New Size(98, 18)
         Label3.TabIndex = 8
@@ -253,7 +340,7 @@ Partial Class manage_students
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(259, 84)
+        TextBox2.Location = New Point(194, 93)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(160, 21)
         TextBox2.TabIndex = 7
@@ -263,7 +350,7 @@ Partial Class manage_students
         Label2.AutoSize = True
         Label2.Font = New Font("Arial Rounded MT Bold", 12F)
         Label2.ForeColor = Color.WhiteSmoke
-        Label2.Location = New Point(156, 84)
+        Label2.Location = New Point(91, 93)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 18)
         Label2.TabIndex = 6
@@ -271,7 +358,7 @@ Partial Class manage_students
         ' 
         ' Textbox1
         ' 
-        Textbox1.Location = New Point(259, 37)
+        Textbox1.Location = New Point(194, 44)
         Textbox1.Name = "Textbox1"
         Textbox1.Size = New Size(160, 21)
         Textbox1.TabIndex = 5
@@ -281,23 +368,12 @@ Partial Class manage_students
         Label1.AutoSize = True
         Label1.Font = New Font("Arial Rounded MT Bold", 12F)
         Label1.ForeColor = Color.WhiteSmoke
-        Label1.Location = New Point(156, 37)
+        Label1.Location = New Point(87, 44)
         Label1.Name = "Label1"
         Label1.Size = New Size(101, 18)
         Label1.TabIndex = 1
         Label1.Text = "User Name:"
         Label1.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' PictureBox2
-        ' 
-        PictureBox2.BackColor = Color.Transparent
-        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(490, 22)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(234, 255)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 0
-        PictureBox2.TabStop = False
         ' 
         ' TabPage2
         ' 
@@ -316,7 +392,7 @@ Partial Class manage_students
         TabPage2.Location = New Point(4, 23)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(875, 360)
+        TabPage2.Size = New Size(882, 353)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Edit User"
         ' 
@@ -447,10 +523,23 @@ Partial Class manage_students
         TabPage3.Location = New Point(4, 23)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(875, 360)
+        TabPage3.Size = New Size(882, 353)
         TabPage3.TabIndex = 2
         TabPage3.Text = "Users"
         TabPage3.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(26, 44)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.Size = New Size(816, 223)
+        DataGridView1.TabIndex = 31
         ' 
         ' Button5
         ' 
@@ -469,24 +558,11 @@ Partial Class manage_students
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.AllowUserToDeleteRows = False
-        DataGridView1.AllowUserToResizeColumns = False
-        DataGridView1.AllowUserToResizeRows = False
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(26, 44)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.ReadOnly = True
-        DataGridView1.Size = New Size(816, 223)
-        DataGridView1.TabIndex = 31
-        ' 
         ' manage_students
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(877, 442)
+        ClientSize = New Size(876, 447)
         Controls.Add(TabControl1)
         Controls.Add(Panel1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
@@ -501,13 +577,12 @@ Partial Class manage_students
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
         TabPage1.PerformLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         TabPage3.ResumeLayout(False)
-        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -518,7 +593,6 @@ Partial Class manage_students
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label2 As Label
@@ -547,4 +621,11 @@ Partial Class manage_students
     Friend WithEvents Button5 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label14 As Label
 End Class

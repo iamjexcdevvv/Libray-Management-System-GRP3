@@ -10,10 +10,22 @@
     <Compile Update="forms\admin_dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\book_issuance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\borrow_request_list.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\library_books.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\manage_books.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\manage_students.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\search_book.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\user_dashboard.vb">

@@ -124,6 +124,9 @@
   <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="photo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="f0f3f016054c6cdf294cbfd8b50a8862" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\f0f3f016054c6cdf294cbfd8b50a8862.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="72a180f85d06b2466885fd7410fc5fbf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\72a180f85d06b2466885fd7410fc5fbf.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="janko-ferlic-sfL_QOnmy00-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\janko-ferlic-sfL_QOnmy00-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="482542841_1034380795403402_4070910923172612813_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\482542841_1034380795403402_4070910923172612813_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +172,7 @@
   <data name="06bd23b8489a38981e7d92ae15cdcfb6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\06bd23b8489a38981e7d92ae15cdcfb6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="photo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\photo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="inaki-del-olmo-NIJuEQw0RKg-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

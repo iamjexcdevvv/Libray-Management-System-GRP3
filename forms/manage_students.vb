@@ -18,34 +18,62 @@ Public Class manage_students
         If String.IsNullOrEmpty(Textbox1.Text) Then
             ErrorProvider1.SetError(Textbox1, "Please fill this field!")
             isValid = False
+        Else
+            ErrorProvider1.SetError(Textbox1, "")
         End If
 
         If String.IsNullOrEmpty(TextBox2.Text) Then
             ErrorProvider1.SetError(TextBox2, "Please fill this field!")
             isValid = False
+        Else
+            ErrorProvider1.SetError(TextBox2, "")
         End If
 
         If String.IsNullOrEmpty(TextBox3.Text) Then
             ErrorProvider1.SetError(TextBox3, "Please fill this field!")
             isValid = False
+        Else
+            ErrorProvider1.SetError(TextBox3, "")
         End If
 
         If String.IsNullOrEmpty(TextBox4.Text) Then
             ErrorProvider1.SetError(TextBox4, "Please fill this field!")
             isValid = False
+        Else
+            ErrorProvider1.SetError(TextBox4, "")
+        End If
+
+        If String.IsNullOrEmpty(TextBox5.Text) Then
+            ErrorProvider1.SetError(TextBox5, "Please fill this field!")
+            isValid = False
+        Else
+            If (Not Form2.IsValidEmailFormat(TextBox5.Text)) Then
+                ErrorProvider1.SetError(TextBox5, "Invalid email format!")
+                isValid = False
+            Else
+                ErrorProvider1.SetError(TextBox5, "")
+            End If
+        End If
+
+        If selectedStudentPhoto = "" Then
+            ErrorProvider1.SetError(Label14, "Please choose a file!")
+            isValid = False
+        Else
+            ErrorProvider1.SetError(Label14, "")
         End If
 
         If isValid Then
             Try
-                If selectedStudentPhoto = "" Then
-                    selectedStudentPhoto = "photo.png"
-                End If
+                Dim convertedImage As Byte() = ConvertSelectedPhotoToByte(selectedStudentPhoto)
+                Dim studentGender As String = RadioButton1.Text
 
-                Dim convertedImage As Byte() = ConvertSelectedPhotoToByte(PictureBox2)
+                If RadioButton2.Checked Then
+                    studentGender = RadioButton2.Text
+                End If
 
                 Dim password = Net.BCrypt.HashPassword(TextBox4.Text)
 
-                SaveNewUser(Textbox1.Text, password, TextBox2.Text + " " + TextBox3.Text, ComboBox1.Text, convertedImage)
+                SaveNewUser(Textbox1.Text, TextBox5.Text, studentGender, password, TextBox2.Text + " " + TextBox3.Text, ComboBox1.Text, convertedImage)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -64,8 +92,8 @@ Public Class manage_students
         Dim fileName = openUserFolder.OpenUserFolder
 
         If fileName <> "" Then
-            PictureBox2.Image = Image.FromFile(fileName)
             selectedStudentPhoto = fileName
+            Label14.Text = fileName
         End If
     End Sub
 
@@ -74,7 +102,10 @@ Public Class manage_students
         TextBox2.Text = ""
         TextBox3.Text = ""
         TextBox4.Text = ""
-        PictureBox2.Image = My.Resources.photo
+        TextBox5.Text = ""
+
+        Label14.Text = "No file chosen"
+
         ComboBox1.Text = ComboBox1.SelectedIndex = 1
 
         ErrorProvider1.Clear()
@@ -95,10 +126,10 @@ Public Class manage_students
         Button4.Enabled = False
         Button3.Enabled = False
     End Sub
-    Private Async Sub SaveNewUser(username As String, password As String, studentName As String, studentRole As String, studentPhoto As Byte())
+    Private Async Sub SaveNewUser(username As String, email As String, studentGender As String, password As String, studentName As String, studentRole As String, studentPhoto As Byte())
         Try
-            Dim query As String = "INSERT INTO users (username, studentPassword, studentName, studentRole, studentProfile) VALUES " &
-                                  "(@username, @studentPassword, @studentName, @studentRole, @studentProfile)"
+            Dim query As String = "INSERT INTO users (username, email, studentGender, studentPassword, studentName, studentRole, studentProfile) VALUES " &
+                                  "(@username, @email, @studentGender, @studentPassword, @studentName, @studentRole, @studentProfile)"
 
             Using conn As New MySqlConnection(connectionString)
                 Await conn.OpenAsync()
@@ -109,6 +140,8 @@ Public Class manage_students
                     cmd.Parameters.AddWithValue("@studentName", studentName)
                     cmd.Parameters.AddWithValue("@studentRole", studentRole)
                     cmd.Parameters.AddWithValue("@studentProfile", studentPhoto)
+                    cmd.Parameters.AddWithValue("@email", email)
+                    cmd.Parameters.AddWithValue("@studentGender", studentGender)
 
                     Await cmd.ExecuteNonQueryAsync()
 
@@ -225,11 +258,7 @@ Public Class manage_students
             Try
                 Dim query As String = "UPDATE users SET studentProfile = @studentProfile WHERE id = @userID"
 
-                If selectedStudentPhoto = "" Then
-                    selectedStudentPhoto = "photo.png"
-                End If
-
-                Dim studentProfile As Byte() = ConvertSelectedPhotoToByte(PictureBox3)
+                Dim studentProfile As Byte() = ConvertSelectedPhotoToByte(selectedStudentPhoto)
 
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
@@ -272,32 +301,8 @@ Public Class manage_students
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Function ConvertSelectedPhotoToByte(imageBox As PictureBox) As Byte()
-        Dim studentProfilePhotoFormat As ImageFormat
-        Dim fileExtension = Path.GetExtension(selectedStudentPhoto).ToLower
-
-        Select Case fileExtension
-            Case ".jpg", ".jpeg"
-                studentProfilePhotoFormat = ImageFormat.Jpeg
-            Case ".png"
-                studentProfilePhotoFormat = ImageFormat.Png
-            Case ".bmp"
-                studentProfilePhotoFormat = ImageFormat.Bmp
-            Case ".gif"
-                studentProfilePhotoFormat = ImageFormat.Gif
-            Case ".ico"
-                studentProfilePhotoFormat = ImageFormat.Icon
-            Case Else
-                Throw New NotSupportedException("Unsupported image format.")
-        End Select
-
-        Dim mstream As New MemoryStream
-        imageBox.Image.Save(mstream, studentProfilePhotoFormat)
-        Dim convertedImage = mstream.GetBuffer
-        mstream.Close()
-
-        selectedStudentPhoto = ""
-
+    Public Function ConvertSelectedPhotoToByte(fileName As String) As Byte()
+        Dim convertedImage As Byte() = File.ReadAllBytes(fileName)
         Return convertedImage
     End Function
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

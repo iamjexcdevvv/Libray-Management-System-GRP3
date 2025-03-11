@@ -7,8 +7,8 @@ Public Class admin_dashboard
         Me.Close()
     End Sub
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        manage_students.Show()
-        Me.Close()
+        manage_students.Show
+        Close
     End Sub
     Private Async Sub FetchUsersCount()
         Try
@@ -35,7 +35,7 @@ Public Class admin_dashboard
                 Using cmd As New MySqlCommand(query, conn)
                     Dim bookCounts As Integer = Await cmd.ExecuteScalarAsync()
 
-                    Label6.Text = bookCounts
+                    Label9.Text = bookCounts
                 End Using
             End Using
         Catch ex As Exception
@@ -48,6 +48,14 @@ Public Class admin_dashboard
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form1.Show()
+        Me.Close()
+    End Sub
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+        book_issuance.Show
+        Close
+    End Sub
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+        borrow_request_list.Show()
         Me.Close()
     End Sub
 End Class

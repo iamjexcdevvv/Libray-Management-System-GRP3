@@ -293,7 +293,6 @@ Public Class manage_books
             MsgBox(ex.Message)
         End Try
     End Sub
-
     Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
         Try
             If DataGridView1.SelectedRows.Count > 1 Then
